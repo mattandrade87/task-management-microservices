@@ -5,4 +5,4 @@ WORKDIR /app/apps/tasks-service
 RUN npm install -g turbo
 
 
-CMD [ "npm", "run", "start:dev" ]
+CMD sh -c "npm install && npm run start:dev"

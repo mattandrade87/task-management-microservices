@@ -9,19 +9,23 @@ services:
       dockerfile: ./apps/web/Dockerfile
       target: development
     ports:
-      - "3000:3000"
+      - "5173:5173"
     environment:
       - NODE_ENV=development
     networks:
       - challenge-network
     command: npm run dev -- --host 0.0.0.0
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/apps/web/node_modules
 
   # API Gateway
   api-gateway:
     container_name: api-gateway
     build:
       context: .
-      dockerfile: ./apps/api-gateway/Dockerfile
+      dockerfile: ./apps/api-gateway/Dockerfilew
       target: development
     ports:
       - "3001:3001"
