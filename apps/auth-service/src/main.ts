@@ -13,7 +13,7 @@ async function bootstrap() {
       port: 3003,
     },
   });
-
+  await app.startAllMicroservices();
   const port = process.env.PORT || 3002;
   await app.listen(port, '0.0.0.0');
 
