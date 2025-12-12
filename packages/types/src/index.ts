@@ -10,3 +10,5 @@ export interface LoginCredentials {
   email: string;
   password: string;
 }
+
+export * from "./auth/login.dto";
