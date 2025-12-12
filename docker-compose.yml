@@ -25,7 +25,7 @@ services:
     container_name: api-gateway
     build:
       context: .
-      dockerfile: ./apps/api-gateway/Dockerfilew
+      dockerfile: ./apps/api-gateway/Dockerfile
       target: development
     ports:
       - "3001:3001"
