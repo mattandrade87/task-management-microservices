@@ -37,6 +37,7 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3001
+      - JWT_SECRET=8ef5a7b4f6cf079c953c55ddb8292648
     depends_on:
       db:
         condition: service_started
@@ -62,6 +63,7 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3002
+      - JWT_SECRET=8ef5a7b4f6cf079c953c55ddb8292648
     depends_on:
       db:
         condition: service_started
