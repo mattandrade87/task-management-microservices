@@ -4,13 +4,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { User } from '../users/user.entity';
+import { RefreshToken } from './refresh-token.entity';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User, RefreshToken]),
+    UsersModule,
     JwtModule.register({
-      secret: 'secretKey',
-      signOptions: { expiresIn: '1h' },
+      secret: process.env.JWT_SECRET || 'secretKey',
+      signOptions: { expiresIn: '15m' },
     }),
   ],
   controllers: [AuthController],
