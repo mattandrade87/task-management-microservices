@@ -41,4 +41,11 @@ yarn-error.log*
 logs
 *.log
 
+# Documentation files (internal/testing)
+PHASE3_TESTING.md
+PHASE4_COMPLETED.md
+PHASE5_COMPLETED.md
+MIGRATIONS.md
+context/
+
 .context
