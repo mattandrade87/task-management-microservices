@@ -12,6 +12,8 @@ services:
       - "5173:5173"
     environment:
       - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001
+      - VITE_WS_URL=ws://localhost:3004
     networks:
       - challenge-network
     command: npm run dev -- --host 0.0.0.0
@@ -38,6 +40,9 @@ services:
       - NODE_ENV=development
       - PORT=3001
       - JWT_SECRET=8ef5a7b4f6cf079c953c55ddb8292648
+      - AUTH_SERVICE_HOST=auth-service
+      - AUTH_SERVICE_PORT=3003
+      - RABBITMQ_URL=amqp://admin:admin@rabbitmq:5672
     depends_on:
       db:
         condition: service_started
@@ -63,7 +68,13 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3002
+      - TCP_PORT=3003
       - JWT_SECRET=8ef5a7b4f6cf079c953c55ddb8292648
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - DB_NAME=challenge_db
     depends_on:
       db:
         condition: service_started
@@ -79,8 +90,6 @@ services:
       context: .
       dockerfile: ./apps/tasks-service/Dockerfile
       target: development
-    ports:
-      - "3003:3003"
     volumes:
       - .:/app
       - ./packages:/app/packages
@@ -88,7 +97,12 @@ services:
       - /app/apps/tasks-service/node_modules
     environment:
       - NODE_ENV=development
-      - PORT=3003
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=password
+      - DATABASE_NAME=challenge_db
+      - RABBITMQ_URL=amqp://admin:admin@rabbitmq:5672
     depends_on:
       db:
         condition: service_started
@@ -114,6 +128,14 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3004
+      - JWT_SECRET=8ef5a7b4f6cf079c953c55ddb8292648
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - DB_NAME=challenge_db
+      - RABBITMQ_URL=amqp://admin:admin@rabbitmq:5672
+      - FRONTEND_URL=http://localhost:5173
     depends_on:
       db:
         condition: service_started
