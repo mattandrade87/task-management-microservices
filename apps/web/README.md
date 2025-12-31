@@ -1,13 +1,66 @@
-# React + TypeScript + Vite
+# Frontend - Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📦 Stack Técnica
 
-Currently, two official plugins are available:
+- **Framework**: React 19.2.0
+- **Router**: TanStack Router (file-based routing)
+- **UI Library**: shadcn/ui (11 componentes)
+- **Styling**: Tailwind CSS v3
+- **Forms**: react-hook-form + zod
+- **HTTP Client**: axios (com interceptors)
+- **WebSocket**: socket.io-client
+- **Notifications**: sonner (toast)
+- **Build Tool**: Vite 7
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Como Rodar
 
-## React Compiler
+### 1. Instalar dependências
+
+```bash
+npm install
+```
+
+### 2. Configurar variáveis de ambiente
+
+```bash
+cp .env.example .env
+```
+
+### 3. Rodar em modo desenvolvimento
+
+```bash
+npm run dev
+```
+
+### 4. Build para produção
+
+```bash
+npm run build
+npm run preview
+```
+
+## 📱 Funcionalidades
+
+- ✅ Autenticação (Login/Register/Logout)
+- ✅ Dashboard com lista de tarefas
+- ✅ Criar/Editar/Deletar tarefas
+- ✅ Adicionar comentários
+- ✅ Notificações em tempo real via WebSocket
+- ✅ Refresh token automático
+- ✅ Loading states e skeleton loaders
+- ✅ Toast notifications
+- ✅ Responsive design
+
+## 🎨 Componentes shadcn/ui
+
+Button, Card, Input, Form, Dialog, Badge, Skeleton, Select, Dropdown Menu, Label, Sonner
+
+**Total**: 11 componentes ✅
+
+## 📚 Documentação
+
+Ver documentação completa no arquivo principal do projeto.
+
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
